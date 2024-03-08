@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ちょいっと占い</title>
+    <link rel="stylesheet" href="styles.css?t=18452">
+    <script src="main.js?t=56106" defer></script>
+    <script defer src="/__/firebase/init.js"></script>
+  </head>
+  <body>
+    <header>
+        <h1>ちょいっとタロット占い</h1>
+    </header>
+    <main>
+        <section id="section-fortune-select">
+            <form id="fortune-form">
+                <select id="fortune-select">
+                    <option value="">選択してください</option>
+                    <option value="love">恋愛</option>
+                    <option value="work">仕事</option>
+                    <option value="health">健康</option>
+                    <option value="money">金運</option>
+                    <option value="study">学業</option>
+                    <option value="family">家庭</option>
+                    <option value="future">未来</option>
+                    <option value="dream">夢</option>
+                </select>
+                <button type="submit">占う</button>
+            </form>
+            <div id="charactor-container">
+            </div>
+            <img id="character-image" src="images/Charactor_ST.png" alt="キャラクター">
+        </section>
+        <div id="character-message-container">
+            <p id="character-message">貴方は何を知りたいのかしら？</p>
+        </div>
+        <div id="loading-indicator" style="display:none;">
+            <img id="tip-image" src="" alt="">
+            <div style="flex: 3; display: flex; flex-direction: column;">
+                <h3 id="tip-title" style="flex: 1;">タイトルエリア</h3>
+                <p id="tip-text" style="flex: 2;">テキストエリア</p>
+            </div>
+        </div>
+        
+        <section id="results-section" style="display: none;">
+            <button id="back-button">初めから</button>
+        </section>
+    </main>
+    <script src="openai.js?t=97615"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+        } catch (e) {
+          console.error(e);
+        }
+      });
+    </script>
+  </body>
+</html>

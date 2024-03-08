@@ -1,0 +1,171 @@
+/* General Styles */
+:root {
+    --primary-color: #6a4f4b; /* 例: 深い茶色 */
+    --secondary-color: #83707d; /* 例: 柔らかい紫 */
+    --accent-color: #a26769; /* 例: 暖かい赤 */
+    --text-color: #fff; /* 新しい変数 */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color);
+}
+
+header {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em; /* サイズを大きく */
+    font-family: 'Times New Roman', serif; /* スタイリッシュなセリフフォントに変更 */
+}
+
+h2 {
+    margin: 0;
+    padding: 0.5em;
+    background-color: #FFFA;
+}
+
+main {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 80vh; /* 画面の高さに合わせて伸ばす */
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #333;
+    color: var(--text-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 15px; /* ボタンの角を丸く */
+}
+
+button:hover {
+    background-color: #444;
+}
+
+#section-fortune-select {
+    position: relative;
+    background-image: url('images/Tarot.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 60vh;
+}
+
+/* Form Styles */
+#fortune-form {
+    padding: 4em 1em 0em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#fortune-select {
+    flex-grow: 1;
+    margin-right: 20px;
+    padding: 10px; /* サイズを大きく */
+    border-radius: 5px; /* 角を丸く */
+}
+
+/* Results Page Styles */
+#results-section {
+    text-align: center;
+}
+#loading-indicator {
+    margin: 20px 0;
+    font-size: 18px;
+    color: #555;
+}
+
+#back-button {
+    display: block;
+    margin: 20px auto;
+}
+
+#character-image {
+    width: auto;
+    height: 35vh;
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+#character-message-container {
+    width: 100%;
+    max-width: 600px;
+    min-height: 90px;
+    display:inline-block;
+    z-index: 2; /* キャラクターの上に表示 */
+    background-color: rgba(255, 255, 255, 1.0);
+    overflow-y: scroll;
+}
+
+#character-message {
+    margin: 1em;
+}
+
+@media (min-width: 1024px) {
+    main {
+        max-width: 90%; /* 幅を広げる */
+    }
+    #character-message-container {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    #fortune-form {
+        flex-direction: column; /* 要素を垂直に積み重ねる */
+        padding: 2em 1em; /* 上下のパディングを調整 */
+    }
+    #fortune-select, button {
+        margin: 10px 0; /* 垂直方向のマージンを追加 */
+    }
+    #character-message-container {
+        max-width: 600px;
+    }
+    #loading-indicator {
+        display: flex;
+        flex-direction: column;
+    }
+    #ip-image  {
+        flex: 0;
+
+    }
+}
+
+#loading-indicator {
+    width: 90vw;
+    position: fixed; /* 画面に固定 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 中央に配置 */
+    background-color: rgba(0, 0, 0, 0.5); /* うっすら黒い背景 */
+    color: #fff; /* 文字色を白に */
+    padding: 20px;
+    border-radius: 10px; /* 角を丸く */
+    z-index: 100; /* 他の要素より前面に */
+}
+
+#tip-image {
+    width: auto; /* コンテナの幅に合わせて調整 */
+    height: 30vh; /* 高さを自動調整 */
+    flex: 1;
+}
